@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0d4e87fa-0b99-4d97-8fac-76aea0a72e52" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1VLYg9cXvBnw1gFgsg5H85CtcH9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d4e87fa-0b99-4d97-8fac-76aea0a72e52" name="Default Changelist" comment="" />
+      <created>1577033951506</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577033951506</updated>
+      <workItem from="1577033957236" duration="469000" />
+      <workItem from="1577034443673" duration="1915000" />
+      <workItem from="1577042299991" duration="1718000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1248" y="109" key="#app/Dockerfile" timestamp="1577042250269">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1248" y="109" key="#app/Dockerfile/0.0.2048.1112@0.0.2048.1112" timestamp="1577042250269" />
+    <state x="962" y="212" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577043753522">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="962" y="212" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1577043753522" />
+    <state x="1372" y="446" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577042064051">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1372" y="446" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1577042064051" />
+    <state x="1317" y="306" key="FileChooserDialogImpl" timestamp="1577044018305">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1317" y="306" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1577044018305" />
+    <state x="1038" y="202" key="SettingsEditor" timestamp="1577044019769">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1038" y="202" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1577044019769" />
+    <state x="1203" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1577034378798">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1203" y="248" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1577034378798" />
+  </component>
+</project>
