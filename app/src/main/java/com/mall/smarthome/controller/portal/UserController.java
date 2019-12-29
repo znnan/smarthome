@@ -89,4 +89,24 @@ public class UserController {
 
         return iUserService.resetPassword(oldPassword, newPassword, user);
     }
+
+    @RequestMapping(value = "update_information.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<User> updateInformation(HttpSession session, User user){
+        this.getUserInfo(session);
+
+        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+        if(currentUser == null){
+            return ServerResponse.createByErrorMessage("User hasn't logged in");
+        }
+
+        user.setId(currentUser.getId());
+        ServerResponse<User> response = iUserService.updateInformation(user);
+
+        if(response.isSuccess()){
+            session.setAttribute(Const.CURRENT_USER,response.getData());
+        }
+
+        return response;
+    }
 }
