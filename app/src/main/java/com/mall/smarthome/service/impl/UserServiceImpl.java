@@ -2,6 +2,7 @@ package com.mall.smarthome.service.impl;
 
 import com.mall.smarthome.common.Const;
 import com.mall.smarthome.common.ServerResponse;
+import com.mall.smarthome.common.TokenCache;
 import com.mall.smarthome.dao.UserMapper;
 import com.mall.smarthome.pojo.User;
 import com.mall.smarthome.service.IUserService;
@@ -9,6 +10,8 @@ import com.mall.smarthome.util.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service("iUserService")
 public class UserServiceImpl implements IUserService {
@@ -75,5 +78,30 @@ public class UserServiceImpl implements IUserService {
         }
 
         return ServerResponse.createBySuccessMessage("validation success");
+    }
+
+    public ServerResponse<String> selectQuestion(String username){
+        ServerResponse validResponse = this.checkValid(username, Const.USER_NAME);
+        if (validResponse.isSuccess()){
+            return ServerResponse.createByErrorMessage("User doesn't exist");
+        }
+
+        String question = userMapper.selectQuestionByUserName(username);
+
+        if(StringUtils.isNoneBlank(username)){
+            return ServerResponse.createBySuccess(question);
+        }
+
+        return ServerResponse.createByErrorMessage("The question is empty");
+    }
+
+    public ServerResponse<String> checkAnswer(String username, String question, String answer){
+        int resultCount = userMapper.checkAnswer(username, question, answer);
+        if(resultCount >0){
+            String forgetToken = UUID.randomUUID().toString();
+            TokenCache.setKey("token_"+username, forgetToken);
+            return ServerResponse.createBySuccess(forgetToken);
+        }
+        return ServerResponse.createByErrorMessage("The answer is wrong");
     }
 }
