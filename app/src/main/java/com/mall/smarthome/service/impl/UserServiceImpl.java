@@ -134,4 +134,19 @@ public class UserServiceImpl implements IUserService {
 
         return ServerResponse.createByErrorMessage("modification failed");
     }
+
+    public ServerResponse<String> resetPassword(String oldPassword, String newPassword, User user){
+        int resultCount = userMapper.checkPassword(MD5Util.MD5EncodeUtf8(oldPassword), user.getId());
+        if(resultCount == 0){
+            return ServerResponse.createByErrorMessage("old password is invalid");
+        }
+
+        user.setPassword(MD5Util.MD5EncodeUtf8(newPassword));
+        int updateCount = userMapper.updateByPrimaryKeySelective(user);
+        if(updateCount > 0){
+            return ServerResponse.createBySuccessMessage("update password successed");
+        }
+
+        return ServerResponse.createByErrorMessage("update password failed");
+    }
 }

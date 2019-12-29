@@ -78,4 +78,15 @@ public class UserController {
     public ServerResponse<String> forgetResetPassword(String username, String newPassword, String forgetToken){
         return iUserService.forgetResetPassword(username, newPassword, forgetToken);
     }
+
+    @RequestMapping(value = "reset_password.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<String> resetPassword(HttpSession session, String oldPassword, String newPassword){
+        User user = (User)session.getAttribute(Const.CURRENT_USER);
+        if(user == null){
+            return ServerResponse.createByErrorMessage("user doesn't log in");
+        }
+
+        return iUserService.resetPassword(oldPassword, newPassword, user);
+    }
 }
