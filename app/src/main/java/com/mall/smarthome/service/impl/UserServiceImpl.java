@@ -7,6 +7,7 @@ import com.mall.smarthome.dao.UserMapper;
 import com.mall.smarthome.pojo.User;
 import com.mall.smarthome.service.IUserService;
 import com.mall.smarthome.util.MD5Util;
+import jdk.nashorn.internal.parser.Token;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -99,9 +100,38 @@ public class UserServiceImpl implements IUserService {
         int resultCount = userMapper.checkAnswer(username, question, answer);
         if(resultCount >0){
             String forgetToken = UUID.randomUUID().toString();
-            TokenCache.setKey("token_"+username, forgetToken);
+            TokenCache.setKey(TokenCache.TOKEN_PREFIX + username, forgetToken);
             return ServerResponse.createBySuccess(forgetToken);
         }
         return ServerResponse.createByErrorMessage("The answer is wrong");
+    }
+
+    public ServerResponse<String> forgetResetPassword(String username, String newPassword, String forgetToken){
+        if(StringUtils.isBlank(forgetToken)){
+            return ServerResponse.createByErrorMessage("parameter is wrong, token is needed");
+        }
+
+        ServerResponse validResponse = this.checkValid(username, Const.USER_NAME);
+        if (validResponse.isSuccess()){
+            return ServerResponse.createByErrorMessage("User doesn't exist");
+        }
+
+        String token = TokenCache.getKey(TokenCache.TOKEN_PREFIX + username);
+        if (StringUtils.isBlank(token)){
+            return ServerResponse.createByErrorMessage("token is invalid or expired");
+        }
+
+        if (StringUtils.equals(forgetToken, token)){
+            String md5Password = MD5Util.MD5EncodeUtf8(newPassword);
+            int rowCount = userMapper.updatePasswordByUserName(username, md5Password);
+
+            if(rowCount > 0){
+                return ServerResponse.createBySuccessMessage("new Password is set successfully");
+            }
+        } else {
+            return ServerResponse.createByErrorMessage("token is invalid, please get the token once again");
+        }
+
+        return ServerResponse.createByErrorMessage("modification failed");
     }
 }
