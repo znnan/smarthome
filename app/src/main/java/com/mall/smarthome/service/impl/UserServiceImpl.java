@@ -7,7 +7,6 @@ import com.mall.smarthome.dao.UserMapper;
 import com.mall.smarthome.pojo.User;
 import com.mall.smarthome.service.IUserService;
 import com.mall.smarthome.util.MD5Util;
-import jdk.nashorn.internal.parser.Token;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
